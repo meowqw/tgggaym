@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/user', [\App\Http\Controllers\User\GetUserController::class, 'getUser'])
+    ->middleware(['auth:sanctum']);
+
+Route::prefix('auth')->group(function () {
+    Route::get('token', [\App\Http\Controllers\Auth\TokenController::class, 'store']);
 });
