@@ -34,6 +34,6 @@ RUN touch /var/log/cron.log
 
 EXPOSE 9000
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/backend
 
 CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

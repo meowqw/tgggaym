@@ -7,15 +7,17 @@ services:
       - "${COMPOSE_PORT}:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - .:/var/www/html/backend
+      - .:/var/www/html
     depends_on:
+      - php
+    links:
       - php
 
   php:
     build:
       context: ./php
       dockerfile: Dockerfile
-    working_dir: /var/www/html
+    working_dir: /var/www/html/backend
     volumes:
       - .:/var/www/html
 
@@ -40,10 +42,10 @@ services:
     ports:
       - "${COMPOSE_REDIS_PORT}:6379"
 
-  python:
-    build:
-      context: ./python
-      dockerfile: Dockerfile
-    command: "python /python/bot/bot.py"
-    volumes:
-      - ./python/bot:/python/bot
+#  python:
+#    build:
+#      context: ./python
+#      dockerfile: Dockerfile
+#    command: "python /python/bot/bot.py"
+#    volumes:
+#      - ./python/bot:/python/bot
