@@ -2,111 +2,68 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereDateStartEnd;
+use Orchid\Platform\Models\User as Authenticatable;
 
-/**
- * @property int $id
- * @property int $tg_id
- * @property ?string $tg_login
- * @property string $last_login
- */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
-    protected $guarded = ['id'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes excluded from the model's JSON form.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
         'remember_token',
+        'permissions',
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'permissions'          => 'array',
+        'email_verified_at'    => 'datetime',
     ];
 
     /**
-     * @return int
+     * The attributes for which you can use filters in url.
+     *
+     * @var array
      */
-    public function getTgId(): int
-    {
-        return $this->tg_id;
-    }
+    protected $allowedFilters = [
+           'id'         => Where::class,
+           'name'       => Like::class,
+           'email'      => Like::class,
+           'updated_at' => WhereDateStartEnd::class,
+           'created_at' => WhereDateStartEnd::class,
+    ];
 
     /**
-     * @param int $tgId
-     * @return User
+     * The attributes for which can use sort in url.
+     *
+     * @var array
      */
-    public function setTgId(int $tgId): User
-    {
-        $this->tg_id = $tgId;
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getTgLogin(): ?string
-    {
-        return $this->tg_login;
-    }
-
-    /**
-     * @param string|null $tgLogin
-     * @return User
-     */
-    public function setTgLogin(?string $tgLogin): User
-    {
-        $this->tg_login = $tgLogin;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastLogin(): string
-    {
-        return $this->last_login;
-    }
-
-    /**
-     * @param string $last_login
-     * @return User
-     */
-    public function setLastLogin(string $last_login): User
-    {
-        $this->last_login = $last_login;
-        return $this;
-    }
+    protected $allowedSorts = [
+        'id',
+        'name',
+        'email',
+        'updated_at',
+        'created_at',
+    ];
 }
