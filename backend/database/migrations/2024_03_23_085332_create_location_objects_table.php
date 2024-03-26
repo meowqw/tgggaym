@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('factions', function (Blueprint $table) {
+        Schema::create('location_objects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('code');
-            $table->text('description');
+            $table->string('type');
             $table->string('asset');
-            $table->unsignedBigInteger('character_gender_id');
+            $table->unsignedBigInteger('location_id');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('factions');
+        Schema::dropIfExists('location_objects');
     }
 };

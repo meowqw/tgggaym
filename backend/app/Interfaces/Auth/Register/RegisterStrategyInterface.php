@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\Auth\Register;
+namespace App\Interfaces\Auth\Register;
 
+use App\Data\DTO\Auth\TelegramUserDataDTO;
 use App\Models\User;
-use App\Services\Auth\DTO\TelegramUserDataDTO;
 
-interface RegisterStrategy
+interface RegisterStrategyInterface
 {
     /**
      * @param TelegramUserDataDTO $loginDTO

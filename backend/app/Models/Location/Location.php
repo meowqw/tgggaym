@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Models\Faction;
+namespace App\Models\Location;
 
 use App\Traits\Model\WithAssetColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int $id
+ * @property int id
  * @property string $name
- * @property string $description
+ * @property string $type
  * @property string $asset
- * @property int $gender_id
  */
-class Faction extends Model
+class Location extends Model
 {
     use HasFactory;
     use WithAssetColumn;
@@ -30,29 +29,11 @@ class Faction extends Model
 
     /**
      * @param int $id
-     * @return Faction
+     * @return Location
      */
-    public function setId(int $id): Faction
+    public function setId(int $id): Location
     {
         $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     * @return Faction
-     */
-    public function setDescription(string $description): Faction
-    {
-        $this->description = $description;
         return $this;
     }
 
@@ -66,11 +47,29 @@ class Faction extends Model
 
     /**
      * @param string $name
-     * @return Faction
+     * @return Location
      */
-    public function setName(string $name): Faction
+    public function setName(string $name): Location
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return Location
+     */
+    public function setType(string $type): Location
+    {
+        $this->type = $type;
         return $this;
     }
 }

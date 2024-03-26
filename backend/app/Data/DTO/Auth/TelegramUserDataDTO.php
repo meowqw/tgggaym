@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Auth\DTO;
+namespace App\Data\DTO\Auth;
 
 /**
  * @property int $tgId

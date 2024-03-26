@@ -2,10 +2,11 @@
 
 namespace App\Services\Auth\Register;
 
+use App\Data\DTO\Auth\TelegramUserDataDTO;
+use App\Interfaces\Auth\Register\RegisterStrategyInterface;
 use App\Models\User;
-use App\Services\Auth\DTO\TelegramUserDataDTO;
 
-class TelegramRegisterService implements RegisterStrategy
+class TelegramRegisterService implements RegisterStrategyInterface
 {
     /**
      * Регистрация (запись данных пользователя)

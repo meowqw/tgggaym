@@ -13,21 +13,13 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->title('Dashboard')
-            ->description('Description...')
+            ->title('tggaym')
+            ->description('Info')
             ->row(Dashboard::title())
             ->row(function (Row $row) {
 
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::environment());
-                });
-
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::extensions());
-                });
-
-                $row->column(4, function (Column $column) {
-                    $column->append(Dashboard::dependencies());
                 });
             });
     }

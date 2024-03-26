@@ -57,4 +57,12 @@ class EditController extends AdminController
         $formMaker = new $this->formMaker($this->model);
         return $formMaker->makeForm();
     }
+
+    /**
+     * @return void
+     */
+    public function store(): void
+    {
+        parent::store();
+    }
 }

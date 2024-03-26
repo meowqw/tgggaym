@@ -2,14 +2,15 @@
 
 namespace App\Services\Auth\Register;
 
+use App\Data\DTO\Auth\TelegramUserDataDTO;
+use App\Interfaces\Auth\Register\RegisterStrategyInterface;
 use App\Models\User;
-use App\Services\Auth\DTO\TelegramUserDataDTO;
 
 class RegisterService
 {
-    public RegisterStrategy $strategy;
+    public TelegramRegisterService $strategy;
 
-    public function __construct(RegisterStrategy $strategy)
+    public function __construct(TelegramRegisterService $strategy)
     {
         $this->strategy = $strategy;
     }
@@ -26,10 +27,10 @@ class RegisterService
     }
 
     /**
-     * @param RegisterStrategy $strategy
+     * @param RegisterStrategyInterface $strategy
      * @return void
      */
-    public function setStrategy(RegisterStrategy $strategy): void
+    public function setStrategy(RegisterStrategyInterface $strategy): void
     {
         $this->strategy = $strategy;
     }

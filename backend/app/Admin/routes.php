@@ -13,8 +13,33 @@ $routes = [
         'actions' => $defaultActions
     ],
     [
-        'route' => 'assets',
-        'controller' => \App\Admin\Controllers\Asset\AssetController::class,
+        'route' => 'characters',
+        'controller' => \App\Admin\Controllers\Character\CharacterController::class,
+        'actions' => $defaultActions
+    ],
+    [
+        'route' => 'hair/colors',
+        'controller' => \App\Admin\Controllers\Character\HairColorController::class,
+        'actions' => $defaultActions
+    ],
+    [
+        'route' => 'hairs',
+        'controller' => \App\Admin\Controllers\Character\HairController::class,
+        'actions' => $defaultActions
+    ],
+    [
+        'route' => 'genders',
+        'controller' => \App\Admin\Controllers\Character\GenderController::class,
+        'actions' => $defaultActions
+    ],
+    [
+        'route' => 'locations',
+        'controller' => \App\Admin\Controllers\Location\LocationController::class,
+        'actions' => $defaultActions
+    ],
+    [
+        'route' => 'location/objects',
+        'controller' => \App\Admin\Controllers\Location\LocationObjectController::class,
         'actions' => $defaultActions
     ],
 ];

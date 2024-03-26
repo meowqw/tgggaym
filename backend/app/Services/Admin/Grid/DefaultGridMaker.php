@@ -2,7 +2,7 @@
 
 namespace App\Services\Admin\Grid;
 
-use App\Services\Admin\SchemaColumnsTrait;
+use App\Traits\Admin\SchemaColumnsTrait;
 
 class DefaultGridMaker extends GridMakerAbstract
 {

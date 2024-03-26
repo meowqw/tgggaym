@@ -23,7 +23,14 @@ abstract class FormMakerAbstract
         $form = new Form(new $this->model);
 
         foreach ($this->columns as $column) {
-            $form->text($column['name'], __($column['key']));
+            switch ($column['type']) {
+                case 'text':
+                    $form->text($column['name'], __($column['key']));
+                    break;
+                case 'image':
+                    $form->image($column['name'], __($column['key']));
+                    break;
+            }
         }
 
         return $form;

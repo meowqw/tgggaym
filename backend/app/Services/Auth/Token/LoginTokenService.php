@@ -2,8 +2,8 @@
 
 namespace App\Services\Auth\Token;
 
+use App\Data\DTO\Auth\TelegramUserDataDTO;
 use App\Models\User;
-use App\Services\Auth\DTO\TelegramUserDataDTO;
 use App\Services\Auth\Register\RegisterService;
 use App\Services\Auth\Register\TelegramRegisterService;
 use Exception;

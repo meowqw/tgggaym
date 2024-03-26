@@ -2,7 +2,7 @@
 
 namespace App\Services\Admin\Form;
 
-use App\Services\Admin\SchemaColumnsTrait;
+use App\Traits\Admin\SchemaColumnsTrait;
 
 class DefaultFormMaker extends FormMakerAbstract
 {
@@ -15,6 +15,7 @@ class DefaultFormMaker extends FormMakerAbstract
     {
         return array_map(function ($column) {
             return [
+                'type' => 'text',
                 'name' => $column,
                 'key' => $column,
                 'sortable' => true

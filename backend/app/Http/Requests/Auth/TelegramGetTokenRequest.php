@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\Services\Auth\DTO\TelegramUserDataDTO;
+use App\Data\DTO\Auth\TelegramUserDataDTO;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TelegramGetTokenRequest extends FormRequest

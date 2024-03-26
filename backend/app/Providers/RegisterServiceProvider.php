@@ -1,11 +1,11 @@
 <?php
 namespace App\Providers;
 
-use App\Services\Auth\Register\RegisterStrategy;
+use App\Interfaces\Auth\Register\RegisterStrategyInterface;
 use App\Services\Auth\Register\TelegramRegisterService;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider
+class RegisterServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,6 +14,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(RegisterStrategy::class, TelegramRegisterService::class);
+        $this->app->bind(RegisterStrategyInterface::class, TelegramRegisterService::class);
     }
 }

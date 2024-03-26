@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Admin;
+namespace App\Traits\Admin;
 
 use Illuminate\Support\Facades\Schema;
 
