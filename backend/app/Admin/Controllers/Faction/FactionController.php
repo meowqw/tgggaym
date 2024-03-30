@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers\Faction;
 
 use App\Admin\Controllers\EditController;
-use App\Models\Faction\Faction;
+use App\Models\CharacterAppearance\Faction;
 use App\Services\Admin\Form\WithAssetFormMaker;
 
 class FactionController extends EditController

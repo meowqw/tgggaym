@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers\Character;
 
 use App\Admin\Controllers\EditController;
-use App\Models\Character\Hair;
+use App\Models\CharacterAppearance\Hair;
 
 class HairController extends EditController
 {

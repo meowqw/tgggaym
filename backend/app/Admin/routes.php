@@ -42,6 +42,11 @@ $routes = [
         'controller' => \App\Admin\Controllers\Location\LocationObjectController::class,
         'actions' => $defaultActions
     ],
+    [
+        'route' => 'game/interface/menu',
+        'controller' => \App\Admin\Controllers\GameInterface\MenuItemController::class,
+        'actions' => $defaultActions
+    ],
 ];
 
 

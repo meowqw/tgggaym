@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Character;
+namespace App\Models\CharacterAppearance;
 
 use App\Traits\Model\WithAssetColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
