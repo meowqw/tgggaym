@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('characters', function (Blueprint $table) {
-            $table->dropColumn(['hair_id', 'hair_color_id', 'gender_id', 'faction_id']);
+//            $table->dropColumn(['hair_id', 'hair_color_id', 'gender_id', 'faction_id']);
         });
     }
 
