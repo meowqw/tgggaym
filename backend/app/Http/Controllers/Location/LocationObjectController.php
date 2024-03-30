@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 class LocationObjectController extends Controller
 {
     /**
-     * Получить обхекты локации
+     * Получить объктты локации
      *
      * @return void
      */
-    public function index() {
+    public function index(int $id) {
 
     }
 }

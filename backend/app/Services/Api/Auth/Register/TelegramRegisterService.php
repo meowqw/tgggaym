@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Auth\Register;
+namespace App\Services\Api\Auth\Register;
 
 use App\Data\DTO\Auth\TelegramUserDataDTO;
 use App\Interfaces\Auth\Register\RegisterStrategyInterface;

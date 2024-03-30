@@ -15,14 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('balance')->default(0);
-            $table->float('experience')->default(0);;
-            $table->float('mana')->default(100);;
-            $table->float('valor')->default(0);;
-            $table->float('hp')->default(100);;
-            $table->unsignedBigInteger('hair_id');
-            $table->unsignedBigInteger('hair_color_id');
-            $table->unsignedBigInteger('gender_id');
-            $table->unsignedBigInteger('faction_id');
+            $table->float('experience')->default(0);
+            $table->float('mana')->default(100);
+            $table->float('valor')->default(0);
+            $table->float('hp')->default(100);
             $table->timestamps();
         });
     }

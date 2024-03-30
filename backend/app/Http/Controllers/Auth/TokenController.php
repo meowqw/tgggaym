@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\TelegramGetTokenRequest;
 use App\Http\Resources\Auth\GetTokenResource;
-use App\Services\Auth\Token\LoginTokenService;
+use App\Services\Api\Auth\Token\LoginTokenService;
 use Exception;
 
 class TokenController extends Controller

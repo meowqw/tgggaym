@@ -47,6 +47,11 @@ $routes = [
         'controller' => \App\Admin\Controllers\GameInterface\MenuItemController::class,
         'actions' => $defaultActions
     ],
+    [
+        'route' => 'characters/preset',
+        'controller' => \App\Admin\Controllers\Character\CharacterAppearancePresetController::class,
+        'actions' => $defaultActions
+    ],
 ];
 
 

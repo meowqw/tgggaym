@@ -2,7 +2,7 @@
 namespace App\Providers;
 
 use App\Interfaces\Auth\Register\RegisterStrategyInterface;
-use App\Services\Auth\Register\TelegramRegisterService;
+use App\Services\Api\Auth\Register\TelegramRegisterService;
 use Illuminate\Support\ServiceProvider;
 
 class RegisterServiceProvider extends ServiceProvider

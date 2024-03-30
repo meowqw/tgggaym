@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\Auth\Token;
+namespace App\Services\Api\Auth\Token;
 
 use App\Data\DTO\Auth\TelegramUserDataDTO;
 use App\Models\User;
-use App\Services\Auth\Register\RegisterService;
-use App\Services\Auth\Register\TelegramRegisterService;
+use App\Services\Api\Auth\Register\RegisterService;
+use App\Services\Api\Auth\Register\TelegramRegisterService;
 use Exception;
 
 class LoginTokenService

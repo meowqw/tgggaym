@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\User\GetUserResource;
-use App\Services\User\UserService;
+use App\Services\Api\User\UserService;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 

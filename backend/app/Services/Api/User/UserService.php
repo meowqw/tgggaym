@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User;
+namespace App\Services\Api\User;
 
 use App\Models\User;
 use Exception;
@@ -17,8 +17,8 @@ class UserService
         /** @var User $user */
         $user = User::query()->where('id', $id)->first();
 
-        if (is_null($user)) {
-            throw new Exception('Пользователь не найден');
+        if ($user === null) {
+            throw new \RuntimeException('Пользователь не найден');
         }
         return $user;
     }

@@ -31,4 +31,40 @@ class Gender extends Model
         $this->id = $id;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Gender
+     */
+    public function setName(string $name): Gender
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     * @return Gender
+     */
+    public function setCode(string $code): Gender
+    {
+        $this->code = $code;
+        return $this;
+    }
 }

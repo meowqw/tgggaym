@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @property int $id
+ * @property string $name
  * @property int $tg_id
  * @property ?string $tg_login
  * @property string $last_login

@@ -68,4 +68,22 @@ class HairColor extends Model
         $this->hex = $hex;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return HairColor
+     */
+    public function setId(int $id): HairColor
+    {
+        $this->id = $id;
+        return $this;
+    }
 }
