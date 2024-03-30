@@ -24,6 +24,7 @@ Route::get('menu', [\App\Http\Controllers\GameInterface\MenuItemController::clas
 
 Route::get('locations', [\App\Http\Controllers\Location\LocationController::class, 'getAvailableLocations']);
 Route::get('location/{id}', [\App\Http\Controllers\Location\LocationController::class, 'show']);
+Route::get('location/objects/{id}', [\App\Http\Controllers\Location\LocationObjectController::class, 'index']);
 
 Route::middleware(['auth:sanctum'])->prefix('character')->group(static function () {
     Route::post('',[\App\Http\Controllers\Character\CharacterController::class, 'store']);
