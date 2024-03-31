@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Character\Character;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -14,6 +17,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property int $tg_id
  * @property ?string $tg_login
  * @property string $last_login
+ *
+ * @property-read Character $character
  */
 class User extends Authenticatable
 {
@@ -109,5 +114,21 @@ class User extends Authenticatable
     {
         $this->last_login = $last_login;
         return $this;
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    private function character(): BelongsTo
+    {
+        return $this->belongsTo(Character::class, 'id', 'user_id');
+    }
+
+    /**
+     * @return object|null
+     */
+    public function getCharacter(): object|null
+    {
+        return $this->character()->first();
     }
 }

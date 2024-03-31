@@ -22,6 +22,11 @@ class CharacterService
     {
         /** @var User $user */
         $user = User::query()->where('id', $userId)->first();
+
+        if ($user->getCharacter() !== null) {
+            throw new ApiExceptionWithMessage('Персонаж уже создан', 400);
+        }
+
         $characterAppearance = $this->characterAppearancePresetService->create($DTO);
 
         $character = (new Character())
@@ -34,9 +39,15 @@ class CharacterService
     /**
      * @param int $userId
      * @return object|null
+     * @throws ApiExceptionWithMessage
      */
     public function getCharacter(int $userId): object|null
     {
-        return Character::query()->where('user_id',$userId)->first();
+        $character = Character::query()->where('user_id',$userId)->first();
+
+        if ($character === null) {
+            throw new ApiExceptionWithMessage('Нет данных', 400);
+        }
+        return $character;
     }
 }
