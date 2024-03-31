@@ -33,7 +33,6 @@ class GetCharacterResource extends JsonResource
             'hp' => $this->resource->getHp(),
             /** @var float $valor */
             'valor' => $this->resource->getValor(),
-            /** @var object $appearance */
             'appearance' => [
                 'assetPath' => $appearance->getAssetPath(),
             ]
