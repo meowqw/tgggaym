@@ -20,6 +20,7 @@ class CharacterController extends Controller
      * Получить персонажа
      *
      * @return GetCharacterResource
+     * @throws ApiExceptionWithMessage
      */
     public function show(): GetCharacterResource
     {

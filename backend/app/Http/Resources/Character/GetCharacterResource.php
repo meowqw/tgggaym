@@ -25,14 +25,15 @@ class GetCharacterResource extends JsonResource
             'id' => $this->resource->getId(),
             /** @var string $name */
             'name' => $this->resource->getName(),
-            /** @var numeric $balance */
+            /** @var float $balance */
             'balance' => $this->resource->getBalance(),
-            /** @var numeric $experience */
+            /** @var float $experience */
             'experience' => $this->resource->getExperience(),
-            /** @var numeric $hp */
+            /** @var float $hp */
             'hp' => $this->resource->getHp(),
-            /** @var numeric $valor */
+            /** @var float $valor */
             'valor' => $this->resource->getValor(),
+            /** @var object $appearance */
             'appearance' => [
                 'assetPath' => $appearance->getAssetPath(),
             ]
