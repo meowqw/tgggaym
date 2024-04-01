@@ -56,8 +56,6 @@ class LoginTokenService
             throw new Exception('Пользователь с таким tgId не найден');
         }
 
-        $user->createToken('token')->plainTextToken;
-
         return $user->createToken('token')->plainTextToken;
     }
 }
