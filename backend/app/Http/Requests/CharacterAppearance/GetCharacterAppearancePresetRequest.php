@@ -37,7 +37,7 @@ class GetCharacterAppearancePresetRequest extends FormRequest
         return new GetPresetDTO(
             factionId: $this->get('factionId'),
             genderId: $this->get('genderId'),
-            hairId: $this->get('genderId'),
+            hairId: $this->get('hairId'),
             hairColorId: $this->get('hairColorId')
         );
     }
