@@ -43,6 +43,8 @@ services:
       - "./docker/redis/data:/data"
     ports:
       - "${COMPOSE_REDIS_PORT}:6379"
+    networks:
+      - my_network
 
   python:
     build:
