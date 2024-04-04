@@ -35,7 +35,7 @@ async def function_play(message: types.Message):
     response = requests.get(f'http://37.46.134.113:90/api/v1/auth/token?tgId={user_id}&tgLogin={username}')
     if response.status_code == 200:
         token = response.json()['data']['token']
-        deeplink = 'http://www.google.com?domain={BOT_USERNAME}&start={token}'
+        deeplink = 'http://37.46.134.113:91&token={token}'
         # Отправка сообщения с deeplink
         await message.answer(f'<a href="{deeplink}">Клиент</a>', parse_mode='HTML')
     else:
