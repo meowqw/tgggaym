@@ -1,39 +1,46 @@
-import asyncio
+from aiogram import Bot, Dispatcher, types, executor
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher.filters import Text
 import logging
 import sys
+import asyncio
+import requests
 
-from aiogram import Bot, Dispatcher, Router, types
-from aiogram.enums import ParseMode
-from aiogram.filters import CommandStart
-from aiogram.types import Message
-from aiogram.utils.markdown import hbold
+TOKEN = "7132565832:AAGGawKwBSZuGwSfGBAoUwv21nbH-IQhXuM"  # Replace with your token
 
-TOKEN = "7132565832:AAGGawKwBSZuGwSfGBAoUwv21nbH-IQhXuM"
-
-dp = Dispatcher()
+# Create bot instance
+bot = Bot(TOKEN)
+storage = MemoryStorage()
+dp = Dispatcher(bot, storage=storage)
 
 
-@dp.message(CommandStart())
-async def command_start_handler(message: Message) -> None:
+@dp.message_handler(commands=['start'])
+async def command_start_handler(message: types.Message) -> None:
     """
     This handler receives messages with `/start` command
     """
-    await message.answer(f"Hello, {hbold(message.from_user.full_name)}!")
+    keyboard = types.InlineKeyboardMarkup()
+    main_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    main_keyboard.row('Играть')
+    await message.answer(f"Привет, {message.from_user.full_name}!", reply_markup=main_keyboard)
 
 
-@dp.message()
-async def echo_handler(message: types.Message) -> None:
-    try:
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        await message.answer("Nice try!")
+@dp.message_handler(Text(equals='Играть'))
+async def function_play(message: types.Message):
+    """
+    PLAY
+    """
+    user_id = message.from_user.id
+    username = message.from_user.username
+    response = requests.get(f'http://37.46.134.113:90/api/v1/auth/token?tgId={user_id}&tgLogin={username}')
+    if response.status_code == 200:
+        token = response.json()['data']['token']
+        deeplink = 'http://www.google.com?domain={BOT_USERNAME}&start={token}'
+        # Отправка сообщения с deeplink
+        await message.answer(f'<a href="{deeplink}">Клиент</a>', parse_mode='HTML')
+    else:
+        await message.answer("Failed to retrieve token")
 
 
-async def main() -> None:
-    bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
-    await dp.start_polling(bot)
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    asyncio.run(main())
+if __name__ == '__main__':
+    executor.start_polling(dp, skip_updates=True)
