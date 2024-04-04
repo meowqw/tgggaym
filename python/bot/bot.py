@@ -35,9 +35,9 @@ async def function_play(message: types.Message):
     response = requests.get(f'http://37.46.134.113:90/api/v1/auth/token?tgId={user_id}&tgLogin={username}')
     if response.status_code == 200:
         token = response.json()['data']['token']
-        deeplink = 'http://37.46.134.113:91&token={token}'
+        deeplink = 'http://37.46.134.113:91?token={token}'
         # Отправка сообщения с deeplink
-        await message.answer(deeplink)
+        await message.answer(f'Ссылка на <a href="{deeplink}">клиент</a>', parse_mode='HTML')
     else:
         await message.answer("Failed to retrieve token")
 
