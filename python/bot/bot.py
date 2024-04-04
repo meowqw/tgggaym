@@ -37,7 +37,7 @@ async def function_play(message: types.Message):
         token = response.json()['data']['token']
         deeplink = 'http://37.46.134.113:91&token={token}'
         # Отправка сообщения с deeplink
-        await message.answer(f'Ссылка на <a href="{deeplink}">клиент</a>', parse_mode='HTML')
+        await message.answer(deeplink)
     else:
         await message.answer("Failed to retrieve token")
 
